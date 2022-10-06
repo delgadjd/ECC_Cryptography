@@ -57,5 +57,16 @@ def lower_bound(): #based on Corollary 3.1.14
     bound = round(numerator / denominator)
     return int(math.pow(2, math.ceil(math.log(bound) / math.log(2))))
 
+def gilbert_varshamov():
+    n, d = input("Enter n, d: ").split()
+    n , d = [int(n), int(d)]
+    k = 2 * d 
+    left = 0
+    for i in range(0 , d - 1):
+        left = left + xChooseY(n - 1, i)
+    right = math.pow(2, n-k)
+    return left < right
+
 print(hamming_bound())
 print(lower_bound())
+#print(gilbert_varshamov())
